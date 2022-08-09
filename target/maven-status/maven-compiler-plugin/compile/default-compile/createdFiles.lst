@@ -1,0 +1,17 @@
+io\spring\guides\gs_producing_web_service\GetAllUserRequest.class
+io\spring\guides\gs_producing_web_service\GetUserResponse.class
+com\example\producingwebservice\WebServiceConfig.class
+io\spring\guides\gs_producing_web_service\ObjectFactory.class
+io\spring\guides\gs_producing_web_service\User.class
+com\example\producingwebservice\ProducingWebServiceApplication.class
+io\spring\guides\gs_producing_web_service\AddUserResponse.class
+io\spring\guides\gs_producing_web_service\GetCountryResponse.class
+com\example\producingwebservice\CountryRepository.class
+io\spring\guides\gs_producing_web_service\GetUserRequest.class
+com\example\producingwebservice\CountryEndpoint.class
+io\spring\guides\gs_producing_web_service\Country.class
+io\spring\guides\gs_producing_web_service\GetCountryRequest.class
+io\spring\guides\gs_producing_web_service\AddUserRequest.class
+io\spring\guides\gs_producing_web_service\GetAllUserResponse.class
+io\spring\guides\gs_producing_web_service\package-info.class
+io\spring\guides\gs_producing_web_service\Currency.class

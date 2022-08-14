@@ -1,0 +1,183 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>VVDCalculatorSoap12 methods</title>
+
+<link rel='stylesheet' type='text/css' href='../Styles/Blueprint_Styles/Style.css' />
+<link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.5.0/styles/default.min.css">
+<script src="https://unpkg.com/@highlightjs/cdn-assets@11.5.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<style type="text/css">
+    .syntaxhighlighter {
+        overflow-y: hidden !important;
+        overflow-x: auto !important;
+    }
+</style></head>
+<body>
+        <h2 id="Add">Add</h2>
+        <p>
+            
+        </p>
+        <h4>Synchronous operation</h4>
+        <pre>
+        <code class="java">
+import ;
+...
+Integer param0 = ...;//initialization code
+Integer param1 = ...;//initialization code
+
+VVDCalculatorSoap12 service = new VVDCalculatorSoap12("http://www.dneonline.com/calculator.asmx");
+Integer res = service.Add(param0,param1);
+//in res variable you have a value returned from your web service
+            </code>
+</pre>
+            <p>To invoke a synchronous method, you need to do this in separate thread (for example by using <a href="http://developer.android.com/reference/android/os/AsyncTask.html">AsyncTask</a> class)</p>
+            <h4>Asynchronous operation</h4>
+            <pre>
+            <code class="java">
+import ;
+...
+Integer param0 = ...;//initialization code
+Integer param1 = ...;//initialization code
+VVDCalculatorSoap12 service = new VVDCalculatorSoap12(new IServiceEvents() {
+    @Override
+    public void Starting() {
+    }
+    @Override
+    public void Completed(OperationResult result) {
+        Integer res = (Integer)result.Result;
+        //in res variable you have a value returned from your web service
+    }
+},"http://www.dneonline.com/calculator.asmx");
+service.AddAsync (param0,param1);
+                </code>
+</pre>
+        <br />
+        <br />
+        <h2 id="Subtract">Subtract</h2>
+        <p>
+            
+        </p>
+        <h4>Synchronous operation</h4>
+        <pre>
+        <code class="java">
+import ;
+...
+Integer param0 = ...;//initialization code
+Integer param1 = ...;//initialization code
+
+VVDCalculatorSoap12 service = new VVDCalculatorSoap12("http://www.dneonline.com/calculator.asmx");
+Integer res = service.Subtract(param0,param1);
+//in res variable you have a value returned from your web service
+            </code>
+</pre>
+            <p>To invoke a synchronous method, you need to do this in separate thread (for example by using <a href="http://developer.android.com/reference/android/os/AsyncTask.html">AsyncTask</a> class)</p>
+            <h4>Asynchronous operation</h4>
+            <pre>
+            <code class="java">
+import ;
+...
+Integer param0 = ...;//initialization code
+Integer param1 = ...;//initialization code
+VVDCalculatorSoap12 service = new VVDCalculatorSoap12(new IServiceEvents() {
+    @Override
+    public void Starting() {
+    }
+    @Override
+    public void Completed(OperationResult result) {
+        Integer res = (Integer)result.Result;
+        //in res variable you have a value returned from your web service
+    }
+},"http://www.dneonline.com/calculator.asmx");
+service.SubtractAsync (param0,param1);
+                </code>
+</pre>
+        <br />
+        <br />
+        <h2 id="Multiply">Multiply</h2>
+        <p>
+            This method is available in Premium account only. To test if generated classes work correctly with your webservice, please use different method. Check http://EasyWsdl.com/Payment/PremiumAccountDetails to see all benefits of Premium account.
+        </p>
+        <h4>Synchronous operation</h4>
+        <pre>
+        <code class="java">
+import ;
+...
+String param0 = ...;//initialization code
+String param1 = ...;//initialization code
+
+VVDCalculatorSoap12 service = new VVDCalculatorSoap12("http://www.dneonline.com/calculator.asmx");
+String res = service.Multiply(param0,param1);
+//in res variable you have a value returned from your web service
+            </code>
+</pre>
+            <p>To invoke a synchronous method, you need to do this in separate thread (for example by using <a href="http://developer.android.com/reference/android/os/AsyncTask.html">AsyncTask</a> class)</p>
+            <h4>Asynchronous operation</h4>
+            <pre>
+            <code class="java">
+import ;
+...
+String param0 = ...;//initialization code
+String param1 = ...;//initialization code
+VVDCalculatorSoap12 service = new VVDCalculatorSoap12(new IServiceEvents() {
+    @Override
+    public void Starting() {
+    }
+    @Override
+    public void Completed(OperationResult result) {
+        String res = (String)result.Result;
+        //in res variable you have a value returned from your web service
+    }
+},"http://www.dneonline.com/calculator.asmx");
+service.MultiplyAsync (param0,param1);
+                </code>
+</pre>
+        <br />
+        <br />
+        <h2 id="Divide">Divide</h2>
+        <p>
+            This method is available in Premium account only. To test if generated classes work correctly with your webservice, please use different method. Check http://EasyWsdl.com/Payment/PremiumAccountDetails to see all benefits of Premium account.
+        </p>
+        <h4>Synchronous operation</h4>
+        <pre>
+        <code class="java">
+import ;
+...
+String param0 = ...;//initialization code
+String param1 = ...;//initialization code
+
+VVDCalculatorSoap12 service = new VVDCalculatorSoap12("http://www.dneonline.com/calculator.asmx");
+String res = service.Divide(param0,param1);
+//in res variable you have a value returned from your web service
+            </code>
+</pre>
+            <p>To invoke a synchronous method, you need to do this in separate thread (for example by using <a href="http://developer.android.com/reference/android/os/AsyncTask.html">AsyncTask</a> class)</p>
+            <h4>Asynchronous operation</h4>
+            <pre>
+            <code class="java">
+import ;
+...
+String param0 = ...;//initialization code
+String param1 = ...;//initialization code
+VVDCalculatorSoap12 service = new VVDCalculatorSoap12(new IServiceEvents() {
+    @Override
+    public void Starting() {
+    }
+    @Override
+    public void Completed(OperationResult result) {
+        String res = (String)result.Result;
+        //in res variable you have a value returned from your web service
+    }
+},"http://www.dneonline.com/calculator.asmx");
+service.DivideAsync (param0,param1);
+                </code>
+</pre>
+        <br />
+        <br />
+</body>
+</html>
+

@@ -19,19 +19,34 @@
 
     <xs:element name="getAllUserRequest">
         <xs:complexType>
-        </xs:complexType>
-    </xs:element>
-
-    <xs:element name="getAllUserResponse">
-        <xs:complexType>
             <xs:sequence>
-                <xs:element name="user1" type="tns:user"/>
-                <xs:element name="user2" type="tns:user"/>
-                <xs:element name="user3" type="tns:user"/>
-                <xs:element name="user4" type="tns:user"/>
+                <xs:element name="Id" type="xs:integer"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
+    <xs:element name="getAllUserResponse">
+        <xs:complexType>
+        <xs:sequence>
+            <xs:element name="users" type="tns:user" nillable="true" minOccurs="1" maxOccurs="10"/>
+        </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+
+
+<!--    <xs:element name="getAllUserResponse">-->
+<!--        <xs:complexType>-->
+<!--            <xs:sequence>-->
+<!--                <xs:element name="user1" type="tns:user"/>-->
+<!--                <xs:element name="user2" type="tns:user"/>-->
+<!--                <xs:element name="user3" type="tns:user"/>-->
+<!--                <xs:element name="user4" type="tns:user"/>-->
+<!--            </xs:sequence>-->
+<!--        </xs:complexType>-->
+<!--    </xs:element>-->
+
+
 
     <xs:element name="addUserRequest">
         <xs:complexType>
@@ -49,6 +64,39 @@
         </xs:complexType>
     </xs:element>
 
+    <xs:element name="updateUserRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Id" type="xs:integer"/>
+                <xs:element name="user" type="tns:user"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="updateUserResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="result" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="deleteUserRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Id" type="xs:integer"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="deleteUserResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="result" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
     <xs:complexType name="user">
         <xs:sequence>
             <xs:element name="name" type="xs:string"/>
@@ -57,5 +105,7 @@
             <xs:element name="id" type="xs:integer"/>
         </xs:sequence>
     </xs:complexType>
+
+
 
 </xs:schema>

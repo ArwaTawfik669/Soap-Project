@@ -2,7 +2,9 @@ package com.example.producingwebservice;
 
 import javax.annotation.PostConstruct;
 import java.math.BigInteger;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import io.spring.guides.gs_producing_web_service.User;
@@ -12,14 +14,14 @@ import org.springframework.util.Assert;
 
 @Component
 public class UserRepository {
-	private static final Map<BigInteger, User> users = new HashMap<>();
+	private static final HashMap<BigInteger, User> users = new HashMap<>();
 
 	@PostConstruct
 	public void initData() {
 		User arwa = new User();
 		arwa.setName("Arwa");
 		arwa.setAddress("Benha");
-		arwa.setId(BigInteger.valueOf(2));
+		arwa.setId(BigInteger.valueOf(1));
 
 
 		users.put(arwa.getId(), arwa);
@@ -42,11 +44,28 @@ public class UserRepository {
 	}
 
 	public User findUser(BigInteger id) {
-		Assert.notNull(id, "The users's name must not be null");
+		Assert.notNull(id, "The users's id must not be null");
 		return users.get(id);
 	}
 
 	public void addUser(User user) {
 		users.put(user.getId(),user);
+	}
+
+	public List<User> findAllUsers() {
+		List<User> ll=new ArrayList<User>();
+		for(Map.Entry<BigInteger,User> u:users.entrySet()){
+			ll.add(u.getValue());
+		}
+		System.out.print (ll+"ll");
+		return ll;
+	}
+
+	public void deleteUser(BigInteger id) {
+		users.remove(id);
+	}
+
+	public void updateUser(BigInteger id, User user) {
+		users.put(id,user);
 	}
 }

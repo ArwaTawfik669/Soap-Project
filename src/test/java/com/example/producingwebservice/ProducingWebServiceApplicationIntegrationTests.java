@@ -16,41 +16,53 @@
 
 package com.example.producingwebservice;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
+import io.spring.guides.gs_producing_web_service.User;
+import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
-import io.spring.guides.gs_producing_web_service.GetCountryRequest;
-
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
-import org.springframework.util.ClassUtils;
-import org.springframework.ws.client.core.WebServiceTemplate;
 
-@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
+import java.math.BigInteger;
+
+import static org.mockito.Mockito.verify;
+
+@SuppressWarnings("unchecked")
+@RunWith(MockitoJUnitRunner.class)
 public class ProducingWebServiceApplicationIntegrationTests {
+    private Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
+    @InjectMocks
+    private UserRepository userRepository = new UserRepository();
+    ;
+    @LocalServerPort
+    private int port = 0;
 
-	private Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
-
-	@LocalServerPort
-	private int port = 0;
-
-	@BeforeEach
-	public void init() throws Exception {
-		marshaller.setPackagesToScan(ClassUtils.getPackageName(GetCountryRequest.class));
-		marshaller.afterPropertiesSet();
-	}
-
-	@Test
-	public void testSendAndReceive() {
-		WebServiceTemplate ws = new WebServiceTemplate(marshaller);
-		GetCountryRequest request = new GetCountryRequest();
-		request.setName("Spain");
-
-		assertThat(ws.marshalSendAndReceive("http://localhost:"
-				+ port + "/ws", request) != null);
+    //
+//    @BeforeEach
+//    public void init() throws Exception {
+//        marshaller.setPackagesToScan(ClassUtils.getPackageName(GetCountryRequest.class));
+//        marshaller.afterPropertiesSet();
+//    }
+    @BeforeEach
+    void setUp() {
+        this.userRepository
+                = new UserRepository();
+        this.userRepository.initData();
     }
+
+    @Test
+    public void testGetByID() {
+        this.userRepository
+                = new UserRepository();
+        this.userRepository.initData();
+        User u = userRepository.findUser(BigInteger.valueOf(1));
+        Assert.assertEquals("Arwa", u.getName());
+        Assert.assertEquals("Benha", u.getAddress());
+    }
+
+
 }

@@ -22,34 +22,11 @@ sourceSets {
     }
 }
 
-task genJaxb {
-    ext.sourcesDir = "${buildDir}/generated-sources/jaxb"
-    ext.schema = "src/main/resources/countries.xsd"
-
-    outputs.dir sourcesDir
-
-    doLast() {
-        project.ant {
-            taskdef name: "xjc", classname: "com.sun.tools.xjc.XJCTask",
-                    classpath: configurations.jaxb.asPath
-            mkdir(dir: sourcesDir)
-
-            xjc(destdir: sourcesDir, schema: schema) {
-                arg(value: "-wsdl")
-                produces(dir: sourcesDir, includes: "**/*.java")
-            }
-        }
-    }
-}
-
-compileJava.dependsOn genJaxb
-// end::xsd[]
-
 // tag::jaxb[]
 configurations {
     jaxb
 }
-
+// tag::jaxb[]
 bootJar {
     archiveBaseName = 'gs-producing-web-service'
     archiveVersion = '0.1.0'
@@ -58,13 +35,13 @@ bootJar {
 
 // tag::dependencies[]
 dependencies {
-    implementation('javax.xml.bind:jaxb-api:2.3.0')
-    implementation('javax.activation:activation:1.1')
-    implementation('org.glassfish.jaxb:jaxb-runtime:2.3.0')
+    implementation('javax.xml.bind:jaxb-api:2.3.1')
+    implementation('javax.activation:activation:1.1.1')
+    implementation('org.glassfish.jaxb:jaxb-runtime:4.0.0')
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-web-services'
     implementation 'wsdl4j:wsdl4j'
-    jaxb("org.glassfish.jaxb:jaxb-xjc")
-    testImplementation('org.springframework.boot:spring-boot-starter-test')
+    implementation 'junit:junit:4.13.2'
+    implementation('org.springframework.boot:spring-boot-starter-test:2.7.2')
 }
 // end::dependencies[]

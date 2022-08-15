@@ -18,35 +18,21 @@ package com.example.producingwebservice;
 
 import io.spring.guides.gs_producing_web_service.User;
 import org.junit.Assert;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
-import org.springframework.boot.web.server.LocalServerPort;
-import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 
 import java.math.BigInteger;
 
-import static org.mockito.Mockito.verify;
 
-@SuppressWarnings("unchecked")
 @RunWith(MockitoJUnitRunner.class)
 public class ProducingWebServiceApplicationIntegrationTests {
-    private Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
     @InjectMocks
     private UserRepository userRepository = new UserRepository();
-    ;
-    @LocalServerPort
-    private int port = 0;
 
-    //
-//    @BeforeEach
-//    public void init() throws Exception {
-//        marshaller.setPackagesToScan(ClassUtils.getPackageName(GetCountryRequest.class));
-//        marshaller.afterPropertiesSet();
-//    }
+
     @BeforeEach
     void setUp() {
         this.userRepository
